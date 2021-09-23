@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var data = JSON.stringify({
+        from: "Drop off",
+        to: "x1603972925936",
+        data: {
+          message: {
+            channel: "whatsapp",
+            user_id: "919884899848",
+            text: "zenyum_obtdropoff_age",
+            email: "Nurulaaa220@test.com",
+          },
+        },
+      });
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+        }
+      });
+
+      xhr.open(
+        "POST",
+        "https://app.yellowmessenger.com/integrations/yellowmessenger/receive"
+      );
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.setRequestHeader(
+        "x-auth-token",
+        "52344d078705d05a53721f61fa38945c06ad3f950d87ff0172779cae9cc70577"
+      );
+
+      xhr.send(data);
+    </script>
+  </body>
+</html>
